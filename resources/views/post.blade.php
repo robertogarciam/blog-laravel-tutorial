@@ -8,12 +8,8 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    <article>
-        <h1><a href="/post">My First Post</a></h1>
-
-        <p>
-            lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum consectetur ipsa doloribus accusantium pariatur? Natus, aliquid? Fugiat ratione pariatur maiores doloribus mollitia, quam molestiae dolorum debitis esse, explicabo quo quasi!
-        </p>
+    <article>        
+            <?= $post;  ?>
     </article>
 
     <a href="/">Go Back</a>
