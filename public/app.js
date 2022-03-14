@@ -1,1 +1,0 @@
-alert('Me Deh Yah');
