@@ -31,4 +31,4 @@ Route::get('post/{post}', function ($slug) {
     return view('post', [
         'post' => $post
     ]);
-});
+})->whereAlphaNumeric('post');
