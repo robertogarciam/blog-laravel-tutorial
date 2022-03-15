@@ -8,29 +8,11 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    <article>
-        <h1><a href="/post/01post">My First Post</a></h1>
-
-        <p>
-            lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum consectetur ipsa doloribus accusantium pariatur? Natus, aliquid? Fugiat ratione pariatur maiores doloribus mollitia, quam molestiae dolorum debitis esse, explicabo quo quasi!
-        </p>
-    </article>
-    
-    <article>
-        <h1><a href="/post/02post">My Second Post</a></h1>
-
-        <p>
-            lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum consectetur ipsa doloribus accusantium pariatur? Natus, aliquid? Fugiat ratione pariatur maiores doloribus mollitia, quam molestiae dolorum debitis esse, explicabo quo quasi!
-        </p>
-    </article>
-
-    <article>
-        <h1><a href="/post/03post">My Third Post</a></h1>
-
-        <p>
-            lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum consectetur ipsa doloribus accusantium pariatur? Natus, aliquid? Fugiat ratione pariatur maiores doloribus mollitia, quam molestiae dolorum debitis esse, explicabo quo quasi!
-        </p>
-    </article>
+    <?php foreach ($posts as $post) : ?>
+        <article>
+            <?= $post; ?>
+        </article>
+    <?php endforeach; ?>
 
 </body>
 </html>
