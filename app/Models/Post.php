@@ -46,12 +46,12 @@ class Post{
                 $document->body(),
                 $document->slug
                 );
-            });        
+            });         
     }
 
     public static function find($slug) {
 
-        $path = resource_path("/posts/{$slug}.html");
+        /* $path = resource_path("/posts/{$slug}.html");
 
         if (!file_exists($path)){
             //dd('file does not exist');
@@ -62,6 +62,12 @@ class Post{
         return cache()->remember("posts.{$slug}", 1200, function() use($path){
             //var_dump('file_get_contents');
             return file_get_contents($path);
-        }); 
+        }); */ 
+
+        //Of all the blog posts, find the one with a slug that matches the one that was requested
+
+        $posts = static::all();
+
+        return $posts->firstWhere('slug', $slug); 
     }
 }
