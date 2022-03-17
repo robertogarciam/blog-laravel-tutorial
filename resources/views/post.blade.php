@@ -9,7 +9,7 @@
 </head>
 <body>
     <article>        
-            <?= $publicacion;  ?>
+            <?= $post;  ?>
     </article>
 
     <a href="/">Go Back</a>

@@ -38,7 +38,8 @@ Route::get('/', function () {
             $document->title,
             $document->excerpt,
             $document->date,
-            $document->body()   
+            $document->body(),
+            $document->slug
         );
     }
 
@@ -47,11 +48,12 @@ Route::get('/', function () {
     ]);
 }); 
 
+//Route::get('post/{post}', function ($slug) {
 Route::get('post/{post}', function ($slug) {
 
     $post = Post::find($slug);
 
     return view('post',[
-        'publicacion' => $post
+        'post' => $post
     ]);
-})->whereAlphaNumeric('post');  
+});//->whereAlphaNumeric('post');  
