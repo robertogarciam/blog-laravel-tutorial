@@ -35,17 +35,17 @@ class Post{
 
     public static function find($slug) {
 
-        /* $path = resource_path("/posts/{$slug}.html");
+        $path = resource_path("/posts/{$slug}.html");
 
         if (!file_exists($path)){
-            dd('file does not exist');
+            //dd('file does not exist');
             //abort(404);
-            //throw new ModelNotFoundException();
+            throw new ModelNotFoundException();
         }
     
         return cache()->remember("posts.{$slug}", 1200, function() use($path){
             //var_dump('file_get_contents');
             return file_get_contents($path);
-        });  */
+        }); 
     }
 }

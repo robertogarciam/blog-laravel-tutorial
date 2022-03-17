@@ -48,12 +48,11 @@ Route::get('/', function () {
     ]);
 }); 
 
-//Route::get('post/{post}', function ($slug) {
-Route::get('post/{post}', function ($slug) {
+Route::get('posts/{post}', function ($slug) {
 
     $post = Post::find($slug);
 
     return view('post',[
         'post' => $post
     ]);
-});//->whereAlphaNumeric('post');  
+})->whereAlphaNumeric('post');  
