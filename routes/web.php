@@ -30,18 +30,31 @@ Route::get('/', function () {
     //$object = YamlFrontMatter::parse(file_get_contents('example.md'));
     //$document = YamlFrontMatter::parseFile(resource_path('posts/04post.html'));
     $files = File::files(resource_path("posts"));    
-    $posts = [];
 
-    foreach($files as $file){
-        $document = YamlFrontMatter::parseFile($file);
-        $posts[] = new Post(
+    $posts = collect($files)
+    ->map(function($file){
+        return YamlFrontMatter::parseFile($file);
+    })
+    ->map(function($document){
+        return new Post(
             $document->title,
             $document->excerpt,
             $document->date,
             $document->body(),
             $document->slug
         );
-    }
+    });
+
+    /* $posts = array_map(function($file){
+        $document = YamlFrontMatter::parseFile($file);
+        return new Post(
+            $document->title,
+            $document->excerpt,
+            $document->date,
+            $document->body(),
+            $document->slug
+        );
+    }, $files); */
 
     return view('posts', [
         'posts' => $posts
