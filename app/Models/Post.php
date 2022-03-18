@@ -32,21 +32,19 @@ class Post{
         return array_map(function($file){
             return $file->getContents();
         }, $files); */
-        $files = File::files(resource_path("posts"));    
+        //$files = File::files(resource_path("posts"));    
 
-    return collect($files)
-            ->map(function($file){
-                return YamlFrontMatter::parseFile($file);
-            })
-            ->map(function($document){
-                return new Post(
-                $document->title,
-                $document->excerpt,
-                $document->date,
-                $document->body(),
-                $document->slug
-                );
-            });         
+        return collect(File::files(resource_path("posts")))
+                ->map(fn($file) => YamlFrontMatter::parseFile($file))
+                ->map(fn($document) => new Post(
+                    $document->title,
+                    $document->excerpt,
+                    $document->date,
+                    $document->body(),
+                    $document->slug
+                    )
+                )
+                ->sortByDesc('date');      
     }
 
     public static function find($slug) {
